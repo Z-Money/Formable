@@ -1,0 +1,22 @@
+{
+  "name": "formable",
+  "version": "1.0.0",
+  "description": "Platform to create simple HTML forms",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run dev"
+  },
+  "keywords": [
+    "html",
+    "forms",
+    "api"
+  ],
+  "author": "Zachariah Kersey",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0"
+  }
+}
