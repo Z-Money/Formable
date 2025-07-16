@@ -1,0 +1,42 @@
+.h1 {
+    font-size: 2em;
+    text-align: center;
+    margin: 0.5em auto;
+    color: #0e51bb;
+}
+
+.p {
+    font-size: 1.35em;
+    text-align: center;
+    margin: 0 auto 0.5em;
+    color: #333;
+    font-weight: 400;
+}
+
+.p2 {
+    font-size: 1.15em;
+    margin: 0.5em auto;
+}
+
+.heroBlock {
+    padding: 5rem 1rem;
+    margin: 3rem;
+}
+
+.signupBtn {
+    text-decoration: none;
+    color: #fff;
+    background-color: #0e51bb;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    font-size: 1.15em;
+    font-weight: 500;
+    margin: 1.35em auto;
+    display: block;
+    width: fit-content;
+    transition: all 0.3s ease-in-out;
+}
+
+.signupBtn:hover {
+    transform: scale(1.05);
+}

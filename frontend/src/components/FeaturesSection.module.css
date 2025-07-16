@@ -1,0 +1,19 @@
+.featuresSection {
+    height: 100vh;
+    padding-top: 10vh;
+}
+
+.h2 {
+    text-align: center;
+    margin: 0.5em auto;
+    font-size: 1.75em;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 1em;
+    width: 95%;
+    margin: 5em 2.5%;
+}

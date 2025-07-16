@@ -1,0 +1,30 @@
+.pre .code {
+  font-family: 'Fira Code', monospace;
+  border-radius: 1em;
+  width: fit-content;
+  margin: auto;
+  padding: 1em 3em 1em 1em;
+}
+
+.pre {
+    position: relative;
+    width: fit-content;
+    margin: auto;
+}
+
+.clipboardIcon {
+    position: absolute;
+    top: 0.25em;
+    right: 0.25em;
+    font-size: 1.5em;
+    padding: 0.25rem;
+    cursor: pointer;
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+    border-radius: 5px;
+}
+
+.clipboardIcon:hover {
+    background-color: #ffffff50;
+    transform: scale(1.1);
+}

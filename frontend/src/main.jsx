@@ -5,13 +5,14 @@ import { createBrowserRouter, RouterProvider } from 'react-router'
 import HomePage from './pages/HomePage'
 import ProfilePage from './pages/ProfilePage'
 import ProfilesPage from './pages/ProfilesPage'
+import NotFoundPage from './pages/NotFoundPage'
 
-import './index.css'
+// import './index.css'
 
 const router = createBrowserRouter([{
   path: '/',
   element: <HomePage />,
-  errorElement: <h1>404</h1>
+  errorElement: <NotFoundPage />
 },
 {
   path: '/profile',
