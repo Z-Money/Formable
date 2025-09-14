@@ -1,0 +1,111 @@
+.centerBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background: #0E51BB;
+    background: linear-gradient(159deg, rgba(14, 81, 187, 1) 0%, rgba(51, 51, 51, 1) 100%);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+    min-height: 70%;
+    height: auto;
+    padding: .5em;
+    border-radius: .5em;
+    margin: auto;
+    text-align: center;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.title {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 80%;
+    margin: auto;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    width: 100%;
+}
+
+.form label {
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.form input {
+    padding: 10px 12px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    color: #fff;
+    outline: none;
+    background: rgba(255, 255, 255, 0);
+    width: 100%;
+    /* max-width: 300px; */
+}
+
+.submitBtn {
+    width: 100%;
+    margin-top: 1em;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+    font-size: 1em;
+
+}
+
+.forgotPassword {
+    margin-top: -5px;
+    align-self: flex-end;
+    font-size: 0.8rem;
+    color: var(--alt-text-color);
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.signupText {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: var(--alt-text-color);
+}
+
+.signup {
+    color: var(--nav-color);
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.errorText {
+    color: #dc143c;
+    text-align: center;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 80%;
+    }
+}

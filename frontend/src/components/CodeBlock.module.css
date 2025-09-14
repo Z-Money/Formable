@@ -1,9 +1,15 @@
+.container {
+    position: relative;
+    width: fit-content;
+    margin: auto;
+}
+
 .pre .code {
-  font-family: 'Fira Code', monospace;
-  border-radius: 1em;
-  width: fit-content;
-  margin: auto;
-  padding: 1em 3em 1em 1em;
+    font-family: 'Fira Code', monospace;
+    border-radius: 1em;
+    width: fit-content;
+    margin: auto;
+    padding: 1em 3em 1em 1em;
 }
 
 .pre {

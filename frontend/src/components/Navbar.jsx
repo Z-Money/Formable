@@ -14,8 +14,8 @@ export default function Navbar() {
                     <a href="#contact"><li>Contact</li></a>
                 </ul>
                 <ul className={styles.rightSection}>
-                    <Link to="/login"><li>Login</li></Link>
-                    <Link to="/signup"><li className={styles.navBtn}>Get Started</li></Link>
+                    <Link to="/auth?login"><li>Login</li></Link>
+                    <Link to="/auth?signup"><li className={styles.navBtn}>Get Started</li></Link>
                 </ul>
             </ul>
         </nav>
