@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "site": "formable",
+    "public": "dist",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/api/**",
+        "destination": "https://<your-project>.functions.supabase.co"
+      }
+    ]
+  }
+}
