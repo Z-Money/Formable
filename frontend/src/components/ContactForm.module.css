@@ -12,13 +12,13 @@
   text-align: left;
 }
 
-label {
+.label {
   font-weight: 600;
   color: #333;
 }
 
-input,
-textarea {
+.input,
+.textarea {
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -27,14 +27,14 @@ textarea {
   font-size: 1rem;
 }
 
-input:focus,
-textarea:focus {
+.input:focus,
+.textarea:focus {
   outline: none;
   border-color: #0e51bb;
   background: #fff;
 }
 
-button {
+.button {
   background-color: #0e51bb;
   color: white;
   border: none;
@@ -45,6 +45,6 @@ button {
   transition: background-color 0.2s ease;
 }
 
-button:hover {
+.button:hover {
   background: #093274;
 }

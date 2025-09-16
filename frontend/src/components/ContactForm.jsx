@@ -24,8 +24,9 @@ export default function ContactForm() {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <label htmlFor="name">Name</label>
+      <label className={styles.label} htmlFor="name">Name</label>
       <input
+        className={styles.input}
         type="text"
         id="name"
         name="name"
@@ -34,8 +35,9 @@ export default function ContactForm() {
         required
       />
 
-      <label htmlFor="email">Email</label>
+      <label className={styles.label} htmlFor="email">Email</label>
       <input
+        className={styles.input}
         type="email"
         id="email"
         name="email"
@@ -44,8 +46,9 @@ export default function ContactForm() {
         required
       />
 
-      <label htmlFor="problem">Problem</label>
+      <label className={styles.label} htmlFor="problem">Problem</label>
       <textarea
+        className={styles.textarea}
         id="problem"
         name="problem"
         value={formData.problem}
@@ -53,7 +56,7 @@ export default function ContactForm() {
         required
       />
 
-      <button type="submit">Submit</button>
+      <button className={styles.button} type="submit">Submit</button>
     </form>
   );
 }
