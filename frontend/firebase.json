@@ -5,12 +5,12 @@
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
-        "source": "**",
-        "destination": "/index.html"
+        "source": "/api/**",
+        "destination": "https://formable.onrender.com/forms/:splat/submit"
       },
       {
-        "source": "/api/**",
-        "destination": "https://<your-project>.functions.supabase.co"
+        "source": "**",
+        "destination": "/index.html"
       }
     ]
   }

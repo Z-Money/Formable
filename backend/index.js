@@ -25,6 +25,11 @@ app.get('/f/:id', (req, res) => {
   res.json({ message: req.params.id });
 });
 
+// Get User's Id from email
+async function getUserIdByEmail(email) {
+  return await client.db("Formable").collection("Users").findOne({ email }, { projection: { _id: 1 } });
+}
+
 // Signup endpoint
 app.post('/signup', async (req, res) => {
   const { name, email, password } = req.body;
@@ -54,4 +59,25 @@ app.post('/login', async (req, res) => {
     return res.status(401).json({ message: 'Invalid password' });
   }
   res.status(200).json({ message: 'Logged in successfully', id: user._id });
+});
+
+app.post("/api/forms/:id/submit", async (req, res) => {
+  try {
+    const formId = req.params.id;
+    const formData = req.body.data;
+    const userId = getUserIdByEmail(req.body.email);
+
+    const doc = {
+      userId: userId,
+      data: formData,
+      submittedAt: new Date(),
+    };
+
+    await client.db("Form_Responses").collection(`${formId}`).insertOne(doc);
+
+    res.status(200).json({ success: true, message: "Form submitted!" });
+  } catch (err) {
+    console.error("Error saving response:", err);
+    res.status(500).json({ success: false, error: "Internal Server Error" });
+  }
 });
