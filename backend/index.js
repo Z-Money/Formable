@@ -9,7 +9,9 @@ const { MongoClient } = require('mongodb');
 const app = express();
 dotenv.config();
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors());// Handle preflight for all /api routes
+app.options('/api/*', cors());
+
 
 // Create MongoClient
 const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PW}@formable.ruv01bs.mongodb.net/?retryWrites=true&w=majority&appName=Formable`;
@@ -64,7 +66,7 @@ app.post('/login', async (req, res) => {
 app.post("/api/forms/:id/submit", async (req, res) => {
   try {
     const formId = req.params.id;
-    const formData = req.body.data;
+    const formData = req.body;
 
     const doc = {
       data: formData,
