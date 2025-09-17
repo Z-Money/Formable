@@ -10,8 +10,24 @@ export default function Signup({ setCurrentContent }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Create an Account");
-        setErrorText('');
+        const response = await fetch(import.meta.env.VITE_API_BASE_URL + '/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name,
+                email,
+                password
+            })
+        });
+
+        const data = await response.json();
+        if (response.status != 201) {
+            setErrorText(data.message);
+        } else {
+            setCurrentContent(<Login setCurrentContent={setCurrentContent} />);
+        }
     };
 
     const handleLogin = () => {

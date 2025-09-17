@@ -14,7 +14,6 @@ export default function AuthPage() {
         } else {
             setCurrentContent(<Login setCurrentContent={setCurrentContent} />);
         }
-        console.log(searchParams);
     }, [searchParams]);
 
     return (

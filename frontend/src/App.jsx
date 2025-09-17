@@ -6,6 +6,7 @@ import ProfilesPage from './pages/ProfilesPage'
 import NotFoundPage from './pages/NotFoundPage'
 import AuthPage from './pages/AuthPage'
 import DocsPage from './pages/DocsPage'
+import DashboardPage from './pages/DashboardPage'
 
 
 export default function App() {
@@ -36,6 +37,10 @@ export default function App() {
   {
     path: '/docs',
     element: <DocsPage />
+  },
+  {
+    path: '/dashboard',
+    element: <DashboardPage />
   }
   ]);
   return <RouterProvider router={router} />

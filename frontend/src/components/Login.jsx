@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useNavigate } from "react-router"
 import Signup from "./Signup"
 import ForgotPassword from './ForgotPassword'
 import styles from '../pages/AuthPage.module.css'
@@ -7,11 +8,29 @@ export default function Login({ setCurrentContent }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorText, setErrorText] = useState('');
+    let navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Create an Account");
-        setErrorText('');
+
+        const response = await fetch(import.meta.env.VITE_API_BASE_URL + '/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email,
+                password
+            })
+        });
+
+        const data = await response.json();
+        if (response.status != 200) {
+            setErrorText(data.message);
+        } else {
+            localStorage.setItem('id', data.id);
+            navigate("/dashboard");
+        }
     };
 
     const handleForgotPassword = () => {
