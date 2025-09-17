@@ -65,10 +65,8 @@ app.post("/api/forms/:id/submit", async (req, res) => {
   try {
     const formId = req.params.id;
     const formData = req.body.data;
-    const userId = getUserIdByEmail(req.body.email);
 
     const doc = {
-      userId: userId,
       data: formData,
       submittedAt: new Date(),
     };
