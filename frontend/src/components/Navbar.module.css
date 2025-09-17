@@ -12,9 +12,9 @@
 .ul {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     list-style: none;
     width: 85%;
-    margin: auto;
     /* background: red; */
     padding: 0;
     gap: 10px;
@@ -88,4 +88,10 @@ li.navBtn:hover {
     justify-content: flex-end;
     justify-self: flex-end;
     flex: 1;
+}
+
+@media screen and (max-width: 768px) {
+    .leftSection, .rightSection {
+        display: none;
+    }
 }

@@ -5,6 +5,7 @@ import ProfilePage from './pages/ProfilePage'
 import ProfilesPage from './pages/ProfilesPage'
 import NotFoundPage from './pages/NotFoundPage'
 import AuthPage from './pages/AuthPage'
+import DocsPage from './pages/DocsPage'
 
 
 export default function App() {
@@ -31,6 +32,10 @@ export default function App() {
   {
     path: '/auth',
     element: <AuthPage />
+  },
+  {
+    path: '/docs',
+    element: <DocsPage />
   }
   ]);
   return <RouterProvider router={router} />

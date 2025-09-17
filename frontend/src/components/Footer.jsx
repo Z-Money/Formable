@@ -16,7 +16,7 @@ export default function Footer() {
 
                 {/* Navigation Links */}
                 <nav className={styles.nav}>
-                    <a href="https://github.com/yourusername/yourrepo" target="_blank" rel="noreferrer">GitHub</a>
+                    <a href="https://github.com/Z-Money/Formable" target="_blank" rel="noreferrer">GitHub</a>
                     <a href="#home">Home</a>
                     <a href="#features">Features</a>
                     <a href="#contact">Contact</a>

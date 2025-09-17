@@ -5,7 +5,8 @@
     padding: 2%;
 }
 
-.featureCard :first-child { /* Selector for passed icon */
+.featureCard :first-child {
+    /* Selector for passed icon */
     width: 20%;
     height: auto;
     color: #0e51bb;
@@ -19,4 +20,16 @@
 .p {
     padding: 0;
     margin: 0;
+}
+
+@media (max-width: 768px) {
+    .featureCard {
+        text-align: center;
+        padding: 5%;
+    }
+
+    .featureCard :first-child {
+        /* width: 30%; */
+        margin: auto;
+    }
 }

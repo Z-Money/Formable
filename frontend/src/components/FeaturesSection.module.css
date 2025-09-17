@@ -20,3 +20,11 @@
     width: 95%;
     margin: 5em 2.5%;
 }
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        margin: 2em 0;
+    }
+}

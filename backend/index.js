@@ -1,19 +1,18 @@
 const express = require('express');
-const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const { MongoClient } = require('mongodb');
 
+// Create and config app
+const app = express();
 dotenv.config();
-
-const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PW}@formable.ruv01bs.mongodb.net/?retryWrites=true&w=majority&appName=Formable`;
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get('/', (req, res) => {
-  res.json({ message: 'Hello World' });
-});
+// Create MongoClient
+const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PW}@formable.ruv01bs.mongodb.net/?retryWrites=true&w=majority&appName=Formable`;
+const client = new MongoClient(uri);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
@@ -23,11 +22,6 @@ app.listen(port, () => {
 app.get('/f/:id', (req, res) => {
   res.json({ message: req.params.id });
 });
-
-
-
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri);
 
 async function run() {
   try {
