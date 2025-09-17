@@ -9,8 +9,7 @@ const { MongoClient } = require('mongodb');
 const app = express();
 dotenv.config();
 app.use(bodyParser.json());
-app.use(cors());// Handle preflight for all /api routes
-app.options('/api/*', cors());
+app.use(cors());
 
 
 // Create MongoClient
@@ -63,17 +62,16 @@ app.post('/login', async (req, res) => {
   res.status(200).json({ message: 'Logged in successfully', id: user._id });
 });
 
-app.post("/api/forms/:id/submit", async (req, res) => {
+app.post("/api/forms/:id", async (req, res) => {
   try {
     const formId = req.params.id;
     const formData = req.body;
-
     const doc = {
       data: formData,
       submittedAt: new Date(),
     };
 
-    await client.db("Form_Responses").collection(`${formId}`).insertOne(doc);
+    await client.db("Form_Submissions").collection(`${formId}`).insertOne(doc);
 
     res.status(200).json({ success: true, message: "Form submitted!" });
   } catch (err) {
