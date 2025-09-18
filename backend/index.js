@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const bcrypt = require('bcrypt');
+const nanoid = require('nanoid');
 const { MongoClient } = require('mongodb');
 
 // Create and config app
@@ -43,8 +44,20 @@ app.post('/signup', async (req, res) => {
     name,
     email,
     password: hashedPassword,
+    createdAt: new Date(),
   };
+  // Create default project and form for new user
   const result = await client.db("Formable").collection("Users").insertOne(user);
+  const project = await client.db("Formable").collection("Projects").insertOne({
+    userId: result.insertedId,
+    name: "My First Project",
+  });
+  await client.db("Formable").collection("Forms").insertOne({
+    projectId: project.insertedId,
+    name: "My First Form",
+    formId: nanoid(8),
+    createdAt: new Date(),
+  });
   res.status(201).json({ message: 'User created successfully', id: result.insertedId });
 });
 
@@ -62,6 +75,7 @@ app.post('/login', async (req, res) => {
   res.status(200).json({ message: 'Logged in successfully', id: user._id });
 });
 
+// Form submission endpoint
 app.post("/api/forms/:id", async (req, res) => {
   try {
     const formId = req.params.id;
@@ -75,7 +89,21 @@ app.post("/api/forms/:id", async (req, res) => {
 
     res.status(200).json({ success: true, message: "Form submitted!" });
   } catch (err) {
-    console.error("Error saving response:", err);
     res.status(500).json({ success: false, error: "Internal Server Error" });
   }
+});
+
+// Form creation endpoint
+app.post("/forms/create", async (req, res) => {
+  const { userId, formName } = req.body;
+  const formId = nanoid(8);
+//add new form to user's forms array
+//create collection for form submissions in Form_Submissions database
+  await client.db("Formable").collection("Projects").insertOne({
+    userId,
+    name: formName,
+  });
+  await client.db("Form_Submissions").createCollection(formId);
+
+  res.status(201).json({ formId });
 });

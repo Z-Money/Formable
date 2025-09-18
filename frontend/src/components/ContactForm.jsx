@@ -15,10 +15,20 @@ export default function ContactForm() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Replace with your backend API call
-    console.log("Form submitted:", formData);
+    const response = await fetch(import.meta.env.VITE_API_BASE_URL + '/api/forms/test', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    });
+    if (response.status != 200) {
+      alert("Error submitting form!");
+    } else {
+      alert("Form submitted successfully!");
+    }
     setFormData({ name: "", email: "", problem: "" });
   };
 
